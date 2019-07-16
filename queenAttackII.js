@@ -15,7 +15,7 @@ function queenAttackII(matrix) {
 
     for(let i =0; i < countObstacle; i++) {
         let obstacle = somethingHere;
-        let dx = obstacle[0] - qu
+        let dx = obstacle[0] - queeu
 
     }
 
