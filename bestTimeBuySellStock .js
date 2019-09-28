@@ -35,7 +35,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
         - the important thing here is to check if prices[i] > lastBuy if so then calculate the profit otherwise lastBuy = prices[i]
         - return profit 
 
-    Time complexity is O(n)
+    Time complexity is O(nb)
 
 */
 

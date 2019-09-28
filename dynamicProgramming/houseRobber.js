@@ -31,9 +31,11 @@ var rob = function(nums) {
     mark[1] = Math.max(nums[0], nums[1]);
     
     // loop from 2 to last, assign mark[i] = max(nums[i] + mark[i-2],  mark[i-1]) what it does keeps highest number to the last i
-    for(let i= 2; i < nums.length; i++) {
-        mark[i] = Math.max(nums[i] + mark[i-2], mark[i-1]);
+    //Using Dynamic Programming to mark the max money in loop to keep track of the prev adjacent since
+    // dp = [] keeps the provious we can use & set dp[i]= Math.max(ap[i-2] + nums[i], dp[i-1])
+    for(let i = 2; i < len; i++) {
+        dp[i] = Math.max(dp[i-2] + nums[i], dp[i-1]);
+        maxAmount = Math.max(maxAmount, dp[i]);
     }
-    
-    return mark[nums.length-1];
+    return maxAmount;
 };
