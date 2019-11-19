@@ -30,7 +30,7 @@ pseudo code:
  - 
 */
 
-function smart(matrix) {
+function minimumPathSum(matrix) {
     if (!matrix) return 0;
     // get the length of row, col
     let [r, c] = [matrix.length, matrix[0].length];
@@ -61,7 +61,7 @@ function smart(matrix) {
     return dp[r - 1][c - 1];
 }
 
-console.log(smart([
+console.log(minimumPathSum([
     [1, 3, 1],
     [1, 5, 1],
     [4, 2, 1]
