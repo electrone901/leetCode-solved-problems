@@ -34,6 +34,19 @@ Notice the indices in queue will always be increasing, representing values from 
 Complexity
 time O(n)
 space O(k)
+
+THE WALK THROUGH:
+    Monotonic_queue  max 
+    [1]              -      push 1 
+    [3]              -      then we remove it cause 3 > 1
+    [3, -1]          3      push -1 
+    [3, -1, -3]      3      again 3 > -1
+    [5]              5      5 > 3
+    [5, 3]           5      5 > 3
+    [6]              6      6 > 5
+    [7]              7      7 > 6
+
+    res = [3, 3, 5,5,6,7]
 */
 
 function maxSlidingWindow(ar, target) {
