@@ -32,6 +32,9 @@ Input: [3,4, 5, 1,2]
                 l
    
 so we return ar[l] Output: 1
+
+Time complexity: O(logn)
+Space complexity: O(1)
 */
 
 var findMin = function(ar) {
