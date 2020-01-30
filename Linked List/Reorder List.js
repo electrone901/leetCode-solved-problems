@@ -27,6 +27,8 @@ Given 1->2->3->4->5, reorder it to 1->5->2->4->3.
     1. Find mid point
     2. Use mid to create L1 & L2. Reverse L2 from slow to the end
     3. Merge both lists one by one & return the list
+
+    A concise O(n) time, O(1) in place solution
  */
 var reorderList = function(head) {
     if(head == null || head.next == null) return;
