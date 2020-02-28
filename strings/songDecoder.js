@@ -39,3 +39,4 @@ function songDecoder1(str){
       if(currentWord) result.push(currentWord);
       return result.join(" ");
     }
+    songDecoder("AWUBBWUBC"); // A B C
