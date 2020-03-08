@@ -1,5 +1,24 @@
 /*
+There is a room with n bulbs, numbered from 1 to n, arranged in a row from left to right. Initially, all the bulbs are turned off.
 
+At moment k (for k from 0 to n - 1), we turn on the light[k] bulb. A bulb change color to blue only if it is on and all the previous bulbs (to the left) are turned on too.
+
+Return the number of moments in which all turned on bulbs are blue.
+
+ 
+
+Example 1:
+
+
+
+Input: light = [2,1,3,5,4]
+Output: 3
+Explanation: All bulbs turned on, are blue at the moment 1, 2 and 4.
+
+
+
+
+PSEUDO CODE:
 To solve this problem, we need to find a way to track all the previous(left) bulbs whether being turned on or not.
 
 One trick I came up with is that we can use a sorted array to track the bulbs' status. We can imagine that if a light is turned on then we add the light number to a sum, that is, if the sum of the current sorted array is equal to the light array, that means all the left bulbs are turned on.
