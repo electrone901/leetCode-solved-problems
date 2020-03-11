@@ -11,11 +11,16 @@ UMPIRE
 
 
 
-Linked Lists really shine when we confine our operations to one end of the data structure and also are dealing with arbitrary, yet small sizes (number of list nodes). The linked list is a good choice in this case because it is both simple to work with and efficient.
+Linked Lists really shine when we confine our operations to one end of the data structure and also are dealing with arbitrary, 
+yet small sizes (number of list nodes). The linked list is a good choice in this case because it is both simple to work with and 
+efficient.
 
-Lists do not do well when you want to support random access, i.e., work at any arbitrary location in the list. This is because the only way to get to the back of the list, is to go one node at a time asking for the next item down until you reach your desired location.
+Lists do not do well when you want to support random access, i.e., work at any arbitrary location in the list. This is because the 
+only way to get to the back of the list, is to go one node at a time asking for the next item down until you reach your desired 
+location.
 
-We also don't like to store large amounts of information in linked lists because for every value you store you pay an extra storage penalty of Node object that decorates the item you want to store. Let's summarize the complexity tradeoffs as follows:
+We also don't like to store large amounts of information in linked lists because for every value you store you pay an extra 
+storage penalty of Node object that decorates the item you want to store. Let's summarize the complexity tradeoffs as follows:
 Time and Space Complexity
 Best cases: Accessing / Search : O(1) Inserting at head: O(1) Deleting at head: O(1)
 
@@ -30,10 +35,14 @@ Tail — node at the end of the list.
 Sentinel — a dummy node, typically placed at the head or end of the list to help make operations simpler (e.g., delete) or to indicate the termination of the list.
  
 Patterns List
-Dummy Head: This is a very common linked list technique as it typically saves you creating special edge condition logic in order to operate on the head of a linked list with some algorithms. This technique only involves creating one extra pointer, the dummy head, that will point to your final answer or list that you will return. This technique is much easier to demonstrate with an example.
-            Delete Node: Say you are asked to delete a node in a linked list given the value of the node you want to delete. Furthermore you are told that you can assume the values are unique.
+Dummy Head: This is a very common linked list technique as it typically saves you creating special edge condition logic in 
+order to operate on the head of a linked list with some algorithms. This technique only involves creating one extra pointer, 
+the dummy head, that will point to your final answer or list that you will return. This technique is much easier to 
+demonstrate with an example.
+Delete Node: Say you are asked to delete a node in a linked list given the value of the node you want to delete. 
+Furthermore you are told that you can assume the values are unique.
 
-            Merge Sorted Lists
+Merge Sorted Lists
 Sorting and maintaining sorted order is a fundamental operation to think about on any data structure. So this is a doubly useful example to motivate the dummy head technique. We will use the problem formulation in Merge Two Sorted Lists.
 
 Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example:
@@ -166,4 +175,4 @@ First make two separate lists, and then join them together with a single pointer
 
 
 
-*/ 
+*/
