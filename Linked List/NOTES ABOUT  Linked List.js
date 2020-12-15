@@ -1,5 +1,5 @@
 /**
-FOLLOW => 
+FOLLOW =>
 UMPIRE
     Understand
     Match
@@ -9,17 +9,21 @@ UMPIRE
     Evaluate performance
 
 
+The most common variants of linked lists are:
 
+Singly Linked List
+Doubly Linked List
+Circular Linked List
 
-Linked Lists really shine when we confine our operations to one end of the data structure and also are dealing with arbitrary, 
-yet small sizes (number of list nodes). The linked list is a good choice in this case because it is both simple to work with and 
+Linked Lists really shine when we confine our operations to one end of the data structure and also are dealing with arbitrary,
+yet small sizes (number of list nodes). The linked list is a good choice in this case because it is both simple to work with and
 efficient.
 
-Lists do not do well when you want to support random access, i.e., work at any arbitrary location in the list. This is because the 
-only way to get to the back of the list, is to go one node at a time asking for the next item down until you reach your desired 
+Lists do not do well when you want to support random access, i.e., work at any arbitrary location in the list. This is because the
+only way to get to the back of the list, is to go one node at a time asking for the next item down until you reach your desired
 location.
 
-We also don't like to store large amounts of information in linked lists because for every value you store you pay an extra 
+We also don't like to store large amounts of information in linked lists because for every value you store you pay an extra
 storage penalty of Node object that decorates the item you want to store. Let's summarize the complexity tradeoffs as follows:
 Time and Space Complexity
 Best cases: Accessing / Search : O(1) Inserting at head: O(1) Deleting at head: O(1)
@@ -33,13 +37,13 @@ Node - a position in a list that contains the value of whatever is stored at the
 Head — node at the beginning of the list.
 Tail — node at the end of the list.
 Sentinel — a dummy node, typically placed at the head or end of the list to help make operations simpler (e.g., delete) or to indicate the termination of the list.
- 
+
 Patterns List
-Dummy Head: This is a very common linked list technique as it typically saves you creating special edge condition logic in 
-order to operate on the head of a linked list with some algorithms. This technique only involves creating one extra pointer, 
-the dummy head, that will point to your final answer or list that you will return. This technique is much easier to 
+Dummy Head: This is a very common linked list technique as it typically saves you creating special edge condition logic in
+order to operate on the head of a linked list with some algorithms. This technique only involves creating one extra pointer,
+the dummy head, that will point to your final answer or list that you will return. This technique is much easier to
 demonstrate with an example.
-Delete Node: Say you are asked to delete a node in a linked list given the value of the node you want to delete. 
+Delete Node: Say you are asked to delete a node in a linked list given the value of the node you want to delete.
 Furthermore you are told that you can assume the values are unique.
 
 Merge Sorted Lists
@@ -60,7 +64,7 @@ class Node(object):
         n = Node(v)
         n.next = self
         return n
-    
+
 def merge(l1, l2):
     h = Node("dummy") # Dummy head technique
     p = h
@@ -79,7 +83,7 @@ def merge(l1, l2):
             l1 = l1.next
         p = p.next   # It is very common to forget to iterate this list as well
     return h.next # Popping off the dummy head
-    
+
 list1 = Node(4).insert(2).insert(1)
 list2 = Node(4).insert(3).insert(1)
 print(f"Input: {list1}, {list2}")
@@ -96,7 +100,7 @@ Multiple Pass: Most computations on a list will require O(N) time complexity, so
                 A:          a1 → a2
                                 ↘
                                     c1 → c2 → c3
-                                ↗            
+                                ↗
                 B:     b1 → b2 → b3
 
 

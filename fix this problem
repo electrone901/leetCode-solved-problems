@@ -1,0 +1,98 @@
+/*
+
+212. Word Search II
+
+Given a 2D board and a list of words from the dictionary, find all words in the board.
+
+Each word must be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
+
+ 
+
+Example:
+
+Input: 
+board = [
+  ['o','a','a','n'],
+  ['e','t','a','e'],
+  ['i','h','k','r'],
+  ['i','f','l','v']
+]
+words = ["oath","pea","eat","rain"]
+
+Output: ["eat","oath"]
+
+
+
+
+
+
+
+
+Output: ["eat","oath"]
+
+
+*/
+
+var findWords = function(b, w) {  
+    let res = [];
+    for(let i = 0; i < w.length; i++) {
+      exist(b, w[i], res);
+    }
+  return res;
+};
+
+
+/*
+
+board = [
+  ['o','a','a','n'],
+  ['e','t','a','e'],
+  ['i','h','k','r'],
+  ['i','f','l','v']
+]
+
+
+console.log(b, w, wordIdx, row, col, res)
+
+*/     
+function exist(b, w, res) {
+  for(let row = 0; row < b.length; row++) {
+    for(let col = 0; col < b[0].length; col++) {
+      if(b[row][col] === w.charAt(0)) {
+        let foundWord = search(b, w, 0, row, col, res);
+        if(foundWord) {
+           res.push(w);
+          console.log("should push", res)
+        }
+      }
+    }
+  }
+  return res;
+}
+
+function search(b, w, wordIdx, row, col, res) {
+ console.log(b, w, wordIdx, row, col, res)
+  if(row <  0 || row >= b.length ||  col < 0 || col >= b[0].length);
+  if(b[row][col] != w.charAt(wordIdx+=1)) return false;
+  
+  if(wordIdx === w.length) {
+    console.log("found word")
+    return true;
+  }
+  
+  
+  let found = search(b, w, wordIdx, row-1, col, res) || 
+      search(b, w, wordIdx, row+1, col, res) ||
+      search(b, w, wordIdx, row, col+1, res) ||
+      search(b, w, wordIdx, row, col-1, res);
+  return found;
+}
+console.log(findWords([
+  ['o','a','a','n'],
+  ['e','t','a','e'],
+  ['i','h','k','r'],
+  ['i','f','l','v']
+], ["oath","pea","eat","rain"])) // [oath, eat]
+
+
+

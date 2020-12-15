@@ -5,9 +5,9 @@ A binary search tree is balanced if and only if the depth of the two subtrees of
 
 If there is more than one answer, return any of them.
 
- 
 
-Example 1: 
+
+Example 1:
 1
  \
   2
@@ -38,23 +38,25 @@ Explanation: This is not the only correct answer, [3,1,4,null,2,null,null] is al
  * @return {TreeNode}
  */
 var balanceBST = function(root) {
-  if (root === null) return;
-  storeBSTNodes(root, (ar = []));
-  let height = ar.length;
-  return build(ar, 0, height - 1);
+    if (root === null) return;
+    storeBSTNodes(root, (ar = []));
+    let height = ar.length;
+    return build(ar, 0, height - 1);
 };
-function build(ar, start, end) {
-  if (start > end) return null;
-  let mid = Math.floor((start + end) / 2);
-  let midNode = ar[mid];
-  midNode.left = build(ar, start, mid - 1);
-  midNode.right = build(ar, mid + 1, end);
 
-  return midNode;
+function build(ar, start, end) {
+    if (start > end) return null;
+    let mid = Math.floor((start + end) / 2);
+    let midNode = ar[mid];
+    midNode.left = build(ar, start, mid - 1);
+    midNode.right = build(ar, mid + 1, end);
+
+    return midNode;
 }
+
 function storeBSTNodes(root, ar) {
-  if (root === null) return;
-  storeBSTNodes(root.left, ar);
-  ar.push(root);
-  storeBSTNodes(root.right, ar);
+    if (root === null) return;
+    storeBSTNodes(root.left, ar);
+    ar.push(root);
+    storeBSTNodes(root.right, ar);
 }

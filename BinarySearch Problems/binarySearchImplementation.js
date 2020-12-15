@@ -22,24 +22,21 @@ Explanation: 2 does not exist in nums so return -1
  * @return {number}
  */
 var search = function(ar, target) {
-    let low = 0; 
-    let high = ar.length - 1; 
-    let middle = Math.floor((low + high) / 2); 
-    
-    while(low <= high){
-        if(ar[middle] === target){
+    let low = 0;
+    let high = ar.length - 1;
+    let middle = Math.floor((low + high) / 2);
+
+    while (low <= high) {
+        if (ar[middle] === target) {
             return middle;
-        }
-        else if(ar[middle] < target){
+        } else if (ar[middle] < target) {
             low = middle + 1;
-        }
-        else{
+        } else {
             high = middle - 1;
         }
-        
-        middle = Math.floor((low + high) / 2); 4
+
+        middle = Math.floor((low + high) / 2);
+        4
     }
-    return -1;    
+    return -1;
 };
-
-
