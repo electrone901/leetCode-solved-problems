@@ -3,7 +3,7 @@ Given a linked list, determine if it has a cycle in it.
 
 To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.
 
- 
+
 
 Example 1:
 
@@ -40,16 +40,30 @@ Explanation: There is no cycle in the linked list.
     - Use two pointers, walker and runner.
     - walker moves step by step. runner moves two steps at time.
     -if the Linked List has a cycle walker and runner will meet at some point.
- 
+
  */
-var hasCycle = function(head) {
+var hasCycle = function (head) {
     let slow = head;
     let fast = head;
-    
-    while(slow.next != null && fast.next !== null) {
+
+    while (slow.next != null && fast.next !== null) {
         slow = slow.next;
         fast = fast.next.next;
-        if(slow == fast) return true;
+        if (slow == fast) return true;
+    }
+    return false;
+};
+
+var hasCycle = function (head) {
+    if (head == null || head.next == null) return false
+
+    let slowPoint = head,
+        fastPoint = head.next;
+
+    while (fastPoint && fastPoint.next && fastPoint.next.next) {
+        slowPoint = slowPoint.next
+        fastPoint = fastPoint.next.next
+        if (slowPoint === fastPoint) return true
     }
     return false;
 };

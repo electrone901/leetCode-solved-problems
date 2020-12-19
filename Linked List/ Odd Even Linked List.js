@@ -30,24 +30,29 @@ The first node is considered odd, the second node even and so on ...
  * TIME COMPLEXITY:
  *  Simple O(N) time, O(1), space.
  * PSEUDO CODE
- * The trick is to realize that we sort of making to list:
- *  - First list is odd 
- *  - Second list is even: evenHead becomes the head for evens, at the end we linked it 
- *    to the last odd.next = evenHead
- * 
+ * The trick is to realize that we need to manipulate pointers so saving odd, even, and evenHead
+ * - we can have a while loop that it checks if we have even & even.next and as we loop through it we will be changing the pointers to
+ *      odd.next  = even.next
+ *      move odd = odd.next,
+ *
+ *      even = odd.next ,
+ *      even =  even.next
+ * then outside the while loop we should do a
+ *   odd.next = evenHead
+ *
  */
-var oddEvenList = function(head) {
+var oddEvenList = function (head) {
     let odd = head;
     let even = head.next;
     let evenHead = head.next;
-    
-    while(even != null && even.next !=null) {
+
+    while (even != null && even.next != null) {
         // links odd.next to next odd node
         odd.next = even.next;
         // updates odd to be the next
         odd = odd.next;
-        
-        // links even.next to next even node 
+
+        // links even.next to next even node
         even.next = odd.next;
         // updates even to be the next
         even = odd.next;

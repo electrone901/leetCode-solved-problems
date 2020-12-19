@@ -23,13 +23,12 @@ Explanation: 342 + 465 = 807.
  * @return {ListNode}
  */
 var addTwoNumbers = function(l1, l2) {
-    let result = [];
     let carry = false;
     let head = new ListNode(0);
     let current = head;
     while(l1 !== null || l2 !== null) {
         let sum = 0;
-        
+
         if(l1 == null) {//If l1 is null, only proceed l2
             sum += l2.val;
             l2 = l2.next;
@@ -43,12 +42,12 @@ var addTwoNumbers = function(l1, l2) {
             l1 = l1.next;
             l2 = l2.next;
         }
-        
+
         if(carry) {
             // if carry exist then add 1 to sum
             sum++;
-        } 
-        
+        }
+
         // check if sum >= 10 then - 10 & carry = true to add +1 in the next iteration
         if(sum >= 10) {
             sum = sum -10;
@@ -57,7 +56,7 @@ var addTwoNumbers = function(l1, l2) {
         else {
             carry = false;
         }
-        
+
         current.next = new ListNode(sum);
         current = current.next;
     }
@@ -65,5 +64,5 @@ var addTwoNumbers = function(l1, l2) {
     if(carry) {
         current.next = new ListNode(1);
     }
-    return head.next; 
+    return head.next;
 };
